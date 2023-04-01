@@ -1,0 +1,24 @@
+#
+# systemd-Unit zum Anlegen des Scripts webserver.py als Dienst:
+# 1. Diese Datei nach /etc/systemd/system kopieren
+# 2. Dienst Starten: systemctl start alarmzentrale-webserver
+# 3. Dienst Stoppen: systemctl stop alarmzentrale-webserver
+# 4. Dienst bei Start des RPi mitstarten: systemctl enable alarmzentrale-webserver
+#
+
+
+[Unit]
+Description=Alarmzentrale Webserver
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/alarmzentrale
+ExecStart=/opt/alarmzentrale/webserver.py
+
+Restart=always
+RestartSec=10
+
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

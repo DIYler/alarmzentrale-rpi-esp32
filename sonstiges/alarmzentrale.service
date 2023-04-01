@@ -1,0 +1,23 @@
+#
+# systemd-Unit zum Anlegen des Scripts alarmzentrale.py als Dienst
+# 1. Diese Datei nach /etc/systemd/system kopieren
+# 2. Dienst Starten: systemctl start alarmzentrale
+# 3. Dienst Stoppen: systemctl stop alarmzentrale
+# 4. Dienst bei Start des RPi mitstarten: systemctl enable alarmzentrale
+#
+
+[Unit]
+Description=Alarmzentrale
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/alarmzentrale
+ExecStart=/opt/alarmzentrale/alarmzentrale.py
+
+Restart=always
+RestartSec=10
+
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

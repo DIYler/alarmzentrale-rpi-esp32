@@ -1,0 +1,98 @@
+{
+  "Scharfschaltungsbereiche": [
+    {
+      "ID": "HausExtern",
+      "Bezeichnung": "Alle Melder Aussen- und Innen",
+      "Melder": [
+        "Tuer1",
+        "Tuer2",
+        "Fenster1",
+        "Fenster2",
+        "BWM1",
+        "BWM2"
+      ],
+      "Alarmbenachrichtigungen": [
+        "SIGNALGEBER_AUSSEN",
+        "SIGNALGEBER_INNEN",
+        "PushPushover",
+        "PushGotify"
+      ]
+    },
+    {
+      "ID": "HausIntern",
+      "Bezeichnung": "Alle Melder Aussen",
+      "Melder": [
+        "Tuer1",
+        "Tuer2",
+        "Fenster1",
+        "Fenster2"
+      ],
+      "Alarmbenachrichtigungen": [
+        "SIGNALGEBER_INNEN",
+        "PushPushover",
+        "PushGotify"
+      ]
+    }
+  ],
+
+  "Melder": [
+    {
+      "ID": "Tuer1",
+      "Bezeichnung": "Haustür an RPi",
+      "GPIO": 4
+    },
+    {
+      "ID": "Tuer2",
+      "Bezeichnung": "Kellertür an ESP32"
+    },
+    {
+      "ID": "Fenster1",
+      "Bezeichnung": "Fenster Wohnzimmer an RPi",
+      "GPIO": 5
+    },
+    {
+      "ID": "Fenster2",
+      "Bezeichnung": "Fenster Schlafzimmer an ESP32"
+    },
+    {
+      "ID": "BWM1",
+      "Bezeichnung": "Bewegungsmelder Flur an RPi",
+      "GPIO": 5
+    },
+    {
+      "ID": "BWM2",
+      "Bezeichnung": "Bewegungsmelder Keller an ESP32"
+    }
+  ],
+
+  "Alarmbenachrichtigung": [
+    {
+      "ID": "SIGNALGEBER_AUSSEN",
+      "Bezeichnung": "Außen-Signalgeber mit Blitz (Dauer) und Sirene (3 Minuten) an RPi",
+      "Typ": "Signalgeber_Blitz_Sirene",
+      "GPIOBlitz": 20,
+      "GPIOSirene": 21,
+      "SireneSekunden": 180
+    },
+    {
+      "ID": "SIGNALGEBER_INNEN",
+      "Bezeichnung": "Innen-Signalgeber mit Blitz (Dauer) und Sirene (3 Minute) an ESP32",
+      "Typ": "Signalgeber_Blitz_Sirene_IP",
+      "IP": "192.168.0.101",
+      "GPIOBlitz": 23,
+      "GPIOSirene": 22,
+      "SireneSekunden": 15
+    },
+    {
+      "ID": "PushPushover",
+      "Bezeichnung": "Push auf Smartphone via Pushover",
+      "Typ": "alarmpushover",
+      "userkey": "PUSHOVER_USERKEY"
+    },
+    {
+      "ID": "PushGotify",
+      "Bezeichnung": "Push aus Smartphone via Gotify",
+      "Typ": "alarmpush"
+    }
+  ]
+}
